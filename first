@@ -1,1 +1,10 @@
-1
+#include <iostream>
+#include <fstream>
+#include <Windows.h>
+using namespace std;
+
+int main()
+{
+setlocale (LC_ALL,"rus");
+cout << "Мы пишем код" << endl;
+}

@@ -2,6 +2,7 @@
 #include <fstream>
 #include <Windows.h>
 
+
 using namespace std;
 
 int main() {
@@ -37,7 +38,9 @@ int main() {
 	resultFile << "Сумма четных чисел: " << sum << endl;
 	resultFile << "Количество отрицательных чисел: " << count << endl;
 	resultFile.close();
-
+  cout << "Мы пишем код" << endl;
 	return 0;
 }
+
+
 

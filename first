@@ -1,10 +1,46 @@
 #include <iostream>
 #include <fstream>
 #include <Windows.h>
+
+
 using namespace std;
 
-int main()
-{
-setlocale (LC_ALL,"rus");
-cout << "Мы пишем код" << endl;
+int main() {
+	SetConsoleCP(1251);
+	SetConsoleOutputCP(1251);
+	setlocale(LC_ALL, "Russian");
+
+	ofstream outFile("data.txt");
+	double numbers[10] = { 2.0, 3.0, 5.6, 8.0, 9.0, -1.2, -3.5, -7.7, -8.0, 10.0 };
+	for (int i = 0; i < 10; i++) {
+		outFile << numbers[i] << endl;
+	}
+	outFile.close();
+
+	ifstream inFile("data.txt");
+	double sum = 0;
+	int count = 0;
+	double num;
+	while (inFile >> num) {
+		if (num > 0 && (int)num % 2 == 0) {
+			sum += num;
+		}
+		else if (num < 0) {
+			count++;
+		}
+	}
+	inFile.close();
+
+	cout << "Сумма четных чисел: " << sum << endl;
+	cout << "Количество отрицательных чисел: " << count << endl;
+
+	ofstream resultFile("result.txt");
+	resultFile << "Сумма четных чисел: " << sum << endl;
+	resultFile << "Количество отрицательных чисел: " << count << endl;
+	resultFile.close();
+  cout << "Мы пишем код" << endl;
+	return 0;
 }
+
+
+
